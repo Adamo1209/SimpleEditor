@@ -37,7 +37,7 @@ def main():
     menu_edit.add_command(label="paste",command=clipboard.paste)
     menu_edit.add_separator()
     menu_edit.add_command(label="search",command=text.action_search)
-    menu_edit.add_command(label="replace",command=None)
+    menu_edit.add_command(label="replace",command=text.action_replace)
     
     menu_view = tk.Menu(menu_bar,background="white",font=ui_font,tearoff=False)
     menu_view.add_checkbutton(label="word wrap",variable=text.word_wrap_boolvar,command=text.word_wrap)

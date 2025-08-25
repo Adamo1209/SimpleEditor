@@ -53,7 +53,9 @@ class TextProcesser:
 
     def action_search(self):
         search_dialog = widget.SearchDialog(self.__root,self.__w_text)
-        search_dialog.search()
+
+    def action_replace(self):
+        replace_dialog = widget.ReplaceDialog(self.__root,self.__w_text)
     
 class FileProcesser:
     __w_text:tk.Text = None
