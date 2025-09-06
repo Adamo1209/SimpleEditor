@@ -11,6 +11,7 @@ edit_zone_font = ("Maple Mono NF CN",11)
 
 root = tk.Tk()
 root.title(main_win_title)
+root.iconbitmap(utility.resource_direct(r"assets\icon\simple_64.ico"))
 utility.set_window_center(root,size=main_win_initial_size)
 
 def main():

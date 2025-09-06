@@ -4,6 +4,7 @@ from pathlib import Path
 import tkinter as tk
 import tkinter.messagebox as tkmsg
 import tkinter.filedialog as tkfdlg
+import sys
 
 import widget
 
@@ -21,6 +22,14 @@ def set_window_center(master:tk.Tk,*,size:tuple[int,int]=(0,0)) -> None:
         win_y = int(master.geometry().split("x")[-1].split("+")[0])
         master.geometry(newGeometry=f"{win_x}x{win_y}+{int((screen_x/2)-(win_x/2))}+{int((screen_y/2)-(win_y/1.75))}")
         return None
+    
+def resource_direct(relative_path:str) -> Path:
+    path:Path = Path(__file__).parent / Path(relative_path)
+    if getattr(sys,"frozen",False):
+        path = Path(sys._MEIPASS) / path
+        return path
+    else:
+        return path
 
 class TextProcesser:
     word_wrap_boolvar:tk.BooleanVar = None
