@@ -31,6 +31,25 @@ def resource_direct(relative_path:str) -> Path:
     else:
         return path
 
+def about():
+    tkmsg.showinfo(title="About SimpleEditor",message="Author: Adamo1209\nVersion: 0.1.0\nBuildTime: 20250908(BJT)")
+
+# setting references
+class References:
+    # reference vars
+    main_win_title = "Simple Editor"
+    main_win_initial_size = (600,600)
+    ui_font = ("Arial",11)
+    edit_zone_font = ("Arial",15)
+    top_lable_font = ("Arial",15)
+
+    def setting(self,**kwargs):
+        for var,value in kwargs.items():
+            self.__dict__[var] = value
+
+    def __init__(self,**kwargs):
+        self.setting(self,**kwargs)
+
 class TextProcesser:
     word_wrap_boolvar:tk.BooleanVar = None
 

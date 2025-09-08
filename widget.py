@@ -3,10 +3,10 @@
 import tkinter as tk
 import tkinter.messagebox as tkmsg
 
+import utility
+
 class SearchDialog:
-    ui_font:tuple[str,int] = ("Maple Mono NF CN",11)
-    top_lable_font:tuple[str,int] = ("Maple Mono NF CN",15)
-    dialog_size:str = "450x150"
+    dialog_size = "450x150"
     dialog_title = "search dialog"
     searched_style = {"background":'yellow',"foreground":'red'}
     normal_text_style = {"background":'white',"foreground":'black'}
@@ -25,17 +25,17 @@ class SearchDialog:
         self.__search_top.title(self.dialog_title)
         self.__search_top.resizable(False,False)
 
-        tk.Label(self.__search_top,text=self.dialog_title,font=self.top_lable_font,background="white").pack(side="top",fill="both")
+        tk.Label(self.__search_top,text=self.dialog_title,font=utility.References.top_lable_font,background="white").pack(side="top",fill="both")
 
         frame = tk.Frame(self.__search_top,background="white")
         frame.pack(side="top",fill="both",expand=True)
         frame.rowconfigure([0,1],weight=1)
         frame.columnconfigure([0,1,2,3],weight=1)
 
-        tk.Label(frame,text="search:",font=self.ui_font,background="white").grid(column=0,row=0)
-        self.__search_text = tk.Text(frame,font=self.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
+        tk.Label(frame,text="search:",font=utility.References.ui_font,background="white").grid(column=0,row=0)
+        self.__search_text = tk.Text(frame,font=utility.References.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
         self.__search_text.grid(column=1,row=0)
-        tk.Button(frame,text="sarch",font=self.ui_font,command=self.search).grid(column=3,row=0)
+        tk.Button(frame,text="sarch",font=utility.References.ui_font,command=self.search).grid(column=3,row=0)
         self.__search_top.mainloop()
 
     @property
@@ -72,9 +72,7 @@ class SearchDialog:
             self.search_tag.clear()
 
 class ReplaceDialog:
-    ui_font:tuple[str,int] = ("Maple Mono NF CN",11)
-    top_lable_font:tuple[str,int] = ("Maple Mono NF CN",15)
-    dialog_size:str = "450x150"
+    dialog_size = "450x150"
     dialog_title = "replace dialog"
     replaced_style = {"background":'yellow',"foreground":'red'}
     normal_text_style = {"background":'white',"foreground":'black'}
@@ -94,20 +92,20 @@ class ReplaceDialog:
         self.__replace_top.title(self.dialog_title)
         self.__replace_top.resizable(False,False)
 
-        tk.Label(self.__replace_top,text=self.dialog_title,font=self.top_lable_font,background="white").pack(side="top",fill="both")
+        tk.Label(self.__replace_top,text=self.dialog_title,font=utility.References.top_lable_font,background="white").pack(side="top",fill="both")
 
         frame = tk.Frame(self.__replace_top,background="white")
         frame.pack(side="top",fill="both",expand=True)
         frame.rowconfigure([0,1],weight=1)
         frame.columnconfigure([0,1,2,3],weight=1)
 
-        tk.Label(frame,text="search:",font=self.ui_font,background="white").grid(column=0,row=0)
-        self.__search_text = tk.Text(frame,font=self.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
+        tk.Label(frame,text="search:",font=utility.References.ui_font,background="white").grid(column=0,row=0)
+        self.__search_text = tk.Text(frame,font=utility.References.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
         self.__search_text.grid(column=1,row=0)
-        tk.Label(frame,text="replace:",font=self.ui_font,background="white").grid(column=0,row=1)
-        self.__replace_text = tk.Text(frame,font=self.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
+        tk.Label(frame,text="replace:",font=utility.References.ui_font,background="white").grid(column=0,row=1)
+        self.__replace_text = tk.Text(frame,font=utility.References.ui_font,height=1.25,width=25,borderwidth=3,relief="groove")
         self.__replace_text.grid(column=1,row=1)
-        tk.Button(frame,text="replace",font=self.ui_font,command=self.replace).grid(column=3,row=1)
+        tk.Button(frame,text="replace",font=utility.References.ui_font,command=self.replace).grid(column=3,row=1)
         self.__replace_top.mainloop()
 
     @property
